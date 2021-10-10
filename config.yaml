@@ -1,0 +1,22 @@
+params:
+  epochs:30
+  batch_size:32
+  Validation_data_length:5000
+  Number_of_classes:10
+  length_hiddenlayer1:300
+  length_hiddenlayer2:100
+  optimizer:adam
+  loss:sparse_categorical_crossentropy
+  metrics:accuracy
+artifacts:
+  artifacts_dir:artifacts
+  model_dir:model_dir
+  plot_dir:plot_dir
+
+logs:
+  logs_dir: logs_dir
+  general_logs: general_logs
+
+
+
+
