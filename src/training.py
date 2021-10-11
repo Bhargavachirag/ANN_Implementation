@@ -5,6 +5,7 @@ from src.utils.commanutils import get_config
 from src.utils.model import model_creation
 import os
 import argparse
+from src.utils.commanutils import model_save,unique_filename
 
 
 def training(config_path):
@@ -20,7 +21,28 @@ def training(config_path):
     model=model_creation(length_hiddenlayer1, length_hiddenlayer2, optimizer, loss, metrics)
     Detail_losses=model.fit(X_train,y_train,epochs=config['params']['epochs'],validation_data=(X_valid,y_valid))
 
-    return model
+    
+
+
+    artifacts_dir=config['artifacts']['artifacts_dir']
+    model_dir=config['artifacts']['model_dir']
+
+    model_dir_path=os.path.join(artifacts_dir,model_dir)
+    os.makedirs(model_dir_path,exist_ok=True)
+
+
+    model_name=config['artifacts']['model_name']
+    
+    model_save(model,model_name,model_dir_path)
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()

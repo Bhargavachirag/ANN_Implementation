@@ -8,10 +8,13 @@ params:
   optimizer: adam
   loss: sparse_categorical_crossentropy
   metrics: accuracy
+
 artifacts:
   artifacts_dir: artifacts
-  model_dir: model_dir
+  model_dir: model
+  model_name: model.h5
   plot_dir: plot_dir
+
 
 logs:
   logs_dir: logs_dir
